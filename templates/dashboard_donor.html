@@ -1,0 +1,84 @@
+{% extends 'dash_nav_donor.html' %}
+
+{% block headingBlock %}
+<div class="h1 text-center text-white bg-dark py-3" style="margin-bottom: 0;">
+    Welcome {{username}} to Donation site!
+</div>
+{% endblock headingBlock %}
+
+{% block bodyBlock %}
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" id="firstSlide">
+            <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="hospital.svg"
+                aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="#777" />
+                <image href = "donation1.jpeg" width = "100%"/>
+            </svg> -->
+        </div>
+        <div class="carousel-item" id="secondSlide">
+            <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#777" />
+                    <image href = "hospital.jpg" width = "100%"/>
+                </svg> -->
+                
+            </div>
+            <div class="carousel-item" id="thirdSlide">
+                <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#777" />
+                    <image href = "donation2.jpeg" width = "100%"/>
+                </svg> -->
+                
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    <div class="h2 text-center my-5">Some of the hospitals you can look at!</div>
+    <div class="card mx-auto my-3" style="width: 38rem; display: {{visibility1}};">
+        <img src="{{image1}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title ">{{hospitalName1}}</h5>
+            <p class="card-text ">Location: {{hospital_location1}}</p>
+            <a href="#" class="btn btn-primary ">Donate here!</a>
+        </div>
+    </div>
+    <div class="card mx-auto my-3" style="width: 38rem; display: {{visibility2}};">
+        <img src="{{image2}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title ">{{hospitalName2}}</h5>
+            <p class="card-text ">Location: {{hospital_location2}}</p>
+            <a href="#" class="btn btn-primary ">Donate here!</a>
+        </div>
+    </div>
+    <div class="card mx-auto my-3" style="width: 38rem; display: {{visibility3}};">
+        <img src="{{image3}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title ">{{hospitalName3}}</h5>
+            <p class="card-text ">Location: {{hospital_location3}}</p>
+            <a href="#" class="btn btn-primary ">Donate here!</a>
+        </div>
+    </div>
+    
+
+
+
+{% endblock bodyBlock %}
+
+
+    

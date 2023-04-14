@@ -1,0 +1,13 @@
+{% extends 'navbar.html' %}
+
+{% block navbarButton %}
+<button class="btn btn-outline-success" type="submit" onclick= "location.href='/login'">Login</button>
+{% endblock navbarButton %}
+
+{% block bodyBlock %}  
+<div class="container text-center" style="margin-top: 35vh;">
+    <div class="h1">Logged Out Successfully!</div>
+    <div class="h3">To login again to your account, click on the login</div>
+    <button class="btn btn-outline-success" onclick="location.href = '/'">Click here to go back to home!</button>
+</div>
+    {% endblock bodyBlock %}   

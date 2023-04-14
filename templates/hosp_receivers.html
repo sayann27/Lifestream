@@ -1,0 +1,36 @@
+{% extends 'dash_nav_hosp.html' %}
+
+
+{% block bodyBlock %}
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="container text-center my-5">
+            <div class="h1">Requests</div>
+            <div class="ratio ratio-16x9">
+                <iframe src="/receiver_requests" title="receiver_requests"></iframe>
+              </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container text-center my-5">
+            <div class="h1">Accepted Candidates</div>
+            <div class="ratio ratio-16x9">
+                <iframe src="/accepted_rec_requests" title="accepted__rec_requests"></iframe>
+              </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+{% endblock bodyBlock %}

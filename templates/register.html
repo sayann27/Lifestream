@@ -1,0 +1,198 @@
+{% extends 'navbar.html' %}
+
+{% block navbarButton %}
+<button class="btn btn-outline-success" type="submit" onclick="location.href='/login'">Login</button>
+{% endblock navbarButton %}
+
+{% block bodyBlock %}
+<!-- alert -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" id="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{% endfor %}
+{% endif %}
+
+<div class="container text-center my-5">
+    <div class="h1">Select the type of user</div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+            id="but">
+            Click here!
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item active" onclick="hosp()">Hospital/Blood Bank</a></li>
+            <li><a class="dropdown-item" onclick="recDon()">Receiver/Donor</a></li>
+
+
+        </ul>
+    </div>
+</div>
+
+<div class="container" style="width: 40%;">
+    <!-- Form for hospitals -->
+    <form method="post" action="/register" style="display: none;" id="hosp" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <input type="text" class="form-control" id="InputText" name="user_type" style="display: none;" value="Hospital">
+
+
+        <div class="h1" style="margin-top: 20vh;">Register here!</div>
+        <div class="mb-3">
+            <label for="InputText" class="form-label">Name</label>
+            <input type="text" class="form-control" id="InputText" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="InputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="emailHosp" aria-describedby="emailHelp" name="email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="InputPhone" class="form-label">Contact Number</label>
+            <input type="number" class="form-control" id="phoneHosp" name="phone">
+        </div>
+
+        <div class="mb-3">
+            <label for="InputAddress1" class="form-label">Address Line 1</label>
+            <input type="text" class="form-control" id="InputAddress1" name="addline1">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddress2" class="form-label">Address Line 2</label>
+            <input type="text" class="form-control" id="InputAddress2" name="addline2">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddressCity" class="form-label">City</label>
+            <input type="text" class="form-control" id="InputAddressCity" name="city">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddressState" class="form-label">State</label>
+            <input type="text" class="form-control" id="InputAddressState" name="state">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddressPin" class="form-label">Pincode</label>
+            <input type="number" class="form-control" id="pincodeHosp" name="pincode">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddressPin" class="form-label">Cover Image</label>
+            <input type="text" class="form-control" id="coverHosp" name="image">
+
+        </div>
+        <div class="mb-3">
+            <label for="InputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="pass1Hosp" name="pwd">
+        </div>
+        <div class="mb-3">
+            <label for="InputPassword2" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="pass2Hosp" name="pwd1">
+        </div>
+        <div class="mb-3 form-check">
+            <label>
+            <input type="checkbox" class="form-check-input" id="checkHosp" value = "agree" name="check1"> I agree with the terms and conditions
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5">Submit</button>
+    </form>
+
+
+    <!-- Form for receiver and donor -->
+
+    <form method="post" action="/register" style="display: none;" id="recDon" class="needs-validation">
+        {% csrf_token %}
+        <div class="h1" style="margin-top: 20vh;">Register here!</div>
+        <div class="mb-3">
+            <label for="InputText" class="form-label">Name</label>
+            <input type="text" class="form-control" id="InputText" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="InputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" name="email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="InputDOB" class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" id="InputDOB" name="dob">
+        </div>
+        <div class="mb-3">
+            <label for="InputPhone" class="form-label">Contact Number</label>
+            <input type="number" class="form-control" id="InputPhone" name="phone">
+        </div>
+        <div class="mb-3">
+            <label for="InputBloodGroup" class="form-label">Blood Group</label>
+            <input class="form-control" list="datalistBloodGroup" id="DataListBloodGroup"
+                placeholder="Type to search..." name="bg">
+            <datalist id="datalistBloodGroup">
+                <option value="A+">
+                <option value="A-">
+                <option value="AB+">
+                <option value="AB-">
+                <option value="B+">
+                <option value="B-">
+                <option value="O+">
+                <option value="O-">
+            </datalist>
+        </div>
+        <div class="mb-3">
+            <label for="InputUser" class="form-label">Type of User</label>
+            <input class="form-control" list="datalistUsers" id="DataListUser" placeholder="Type to search..."
+                name="user_type">
+            <datalist id="datalistUsers">
+                <option value="Receiver">
+                <option value="Donor">
+            </datalist>
+        </div>
+        <div class="mb-3">
+            <label for="InputAddress1" class="form-label">Address Line 1</label>
+            <input type="text" class="form-control" id="InputAddress1" name="addline1">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddress2" class="form-label">Address Line 2</label>
+            <input type="text" class="form-control" id="InputAddress2" name="addline2">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddressCity" class="form-label">City</label>
+            <input type="text" class="form-control" id="InputAddressCity" name="city">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddressState" class="form-label">State</label>
+            <input type="text" class="form-control" id="InputAddressState" name="state">
+        </div>
+        <div class="mb-3">
+            <label for="InputAddressPin" class="form-label">Pincode</label>
+            <input type="number" class="form-control" id="InputAddressPin" name="pincode">
+        </div>
+        <div class="mb-3">
+            <label for="InputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="InputPassword1" name="pwd">
+        </div>
+        <div class="mb-3">
+            <label for="InputPassword2" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="InputPassword2" name="pwd1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="Check1" name="check1">
+            <label class="form-check-label" for="Check1">I agree with the terms and conditions</label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5">Submit</button>
+    </form>
+</div>
+
+<script>
+    function hosp() {
+        document.getElementById('hosp').style.display = "block";
+        document.getElementById('recDon').style.display = "none";
+        document.getElementById('but').innerHTML = "Hospital/Blood Bank";
+        // validate_hosp();
+    }
+
+    function recDon() {
+        document.getElementById('recDon').style.display = "block";
+        document.getElementById('hosp').style.display = "none";
+        document.getElementById('but').innerHTML = "Receiver/Donor";
+    }
+
+
+</script>
+
+{% endblock bodyBlock %}

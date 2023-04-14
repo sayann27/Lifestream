@@ -1,0 +1,61 @@
+{% extends 'navbar.html' %}
+
+
+{% block navbarButton %}
+<button class="btn btn-outline-success" type="submit" onclick= "location.href='/register'">Register</button>
+{% endblock navbarButton %}
+
+{% block bodyBlock %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Profiles</h1>
+    <p class="fs-5 text-muted">Login according to the type of profile you belong to </p>
+</div>
+
+<!-- The three cards -->
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border-dark">
+        <div class="card-header py-3 text-bg-dark border-dark">
+          <h4 class="my-0 fw-normal">Receiver</h4>
+        </div>
+        <div class="card-body">
+          <!-- <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1> -->
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>If you want to receive blood then login through this profile</li>
+          </ul>
+          <button type="button" class="w-100 btn btn-lg btn-outline-dark" onclick = "location.href = '/receiver_login'">Login here</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border-dark">
+        <div class="card-header py-3 text-bg-dark border-dark">
+          <h4 class="my-0 fw-normal">Hospital</h4>
+        </div>
+        <div class="card-body">
+          <!-- <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1> -->
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>If you are hospital/Blood bank and want to register for blood donation then register through this profile</li>
+            
+          </ul>
+          <button type="button" class="w-100 btn btn-lg btn-outline-dark" onclick = "location.href = '/hospital_login'">Login here</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border-dark">
+        <div class="card-header py-3 text-bg-dark border-dark">
+          <h4 class="my-0 fw-normal">Donor</h4>
+        </div>
+        <div class="card-body">
+          <!-- <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1> -->
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>If you are a blood donor then login through this profile</li>
+            
+          </ul>
+          <button type="button" class="w-100 btn btn-lg btn-outline-dark" onclick = "location.href = '/donor_login'">Login here</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock bodyBlock %}

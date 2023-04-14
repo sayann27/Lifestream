@@ -1,0 +1,69 @@
+{% extends 'dash_nav_hosp.html' %}
+
+{% block styleBlock %}
+body{
+    background-color: rgb(213, 196, 196);
+}
+{% endblock styleBlock %}
+
+{% block bodyBlock %}
+<div class="container my-5 text-center">
+    <div class="h3">Enter the amounts of blood of the blood groups available</div>
+
+    <form style="max-width: 25%; margin: auto; margin-top: 3rem;" method="post" action="/hosp_blood">
+        {% csrf_token %}
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">A+</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" name="Apos">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">A-</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" name="Aneg">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">B+</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" name="Bpos">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">B-</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" name="Bneg">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">O+</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" name="Opos">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">O-</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" name="Oneg">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">AB+</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" name="ABpos">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">AB-</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEmail3" name="ABneg">
+          </div>
+        </div>
+        
+        
+        
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+</div>
+{% endblock bodyBlock %}

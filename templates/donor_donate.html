@@ -1,0 +1,49 @@
+{% extends 'dash_nav_donor.html' %}
+
+
+{% block bodyBlock%}
+<div class="container my-5 " style="width: 50%;">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" id="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    {% endfor %}
+    {% endif %}
+    <form method = "post" action = "/donate">
+        {% csrf_token %}
+        <div class="h1 text-center">
+            Fill the form to donate!
+        </div>
+
+        <div class="mb-3">
+            <label for="InputBloodGroup" class="form-label">Name of the hospital</label>
+            <input class="form-control" list="datalisthospitals" id="DataListBloodGroup" placeholder="Type to search..." name="hosp_name">
+            <datalist id="datalisthospitals">
+                <!-- <option value="A+"> -->
+                {% for i in name_list %}
+                <option value = "{{i}}">
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="mb-3">
+            <label for="InputEmail1" class="form-label">Email of the hospital</label>
+            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="InputText" class="form-label">Time</label>
+            <input type="time" class="form-control" id="InputText" name="time">
+        </div>
+        <div class="mb-3">
+            <label for="InputText" class="form-label">Date</label>
+            <input type="date" class="form-control" id="InputText" name="date">
+        </div>
+        
+
+    
+        <button type="submit" class="btn btn-primary mb-5">Submit</button>
+    </form>
+</div>
+{% endblock bodyBlock%}

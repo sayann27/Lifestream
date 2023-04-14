@@ -1,0 +1,53 @@
+{% extends 'navbar.html' %}
+
+{% block importing %}
+<link rel="stylesheet" href="/static/donor_login.css">
+{% endblock importing %}
+
+
+{% block navbarButton %}
+<button class="btn btn-outline-success" type="submit" onclick= "location.href='/register'">Register</button>
+{% endblock navbarButton %}
+
+{% block bodyBlock %}
+
+
+
+<div class="text-center" style="margin: auto auto;">
+    <div class="my-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" id="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+        
+        <main class="form-signin w-100 m-auto">
+        <form method = "POST" action = "/{{user_name}}_login">
+            {% csrf_token %}
+            <img class="mb-4" src="/static/Mainlogo.png" alt="" width="122" height="107">
+            <h1 class="h3 mb-3 fw-normal">{{user_name}} sign in</h1>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name = "email">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name = "pwd">
+                <label for="floatingPassword">Password</label>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me" name = "check1"> Remember me
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2023–2025</p>
+        </form>
+    </main>
+</div>
+{% endblock bodyBlock %}

@@ -1,0 +1,126 @@
+{% extends 'navbar.html' %}
+
+
+
+{% block styling %}
+#firstSlide {
+    background-image: url(/static/donation1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#secondSlide{
+    background-image: url(/static/hospital.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#thirdSlide{
+    background-image: url(/static/donation2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+{% endblock styling %}
+
+{% block importing %}
+<link rel="stylesheet" href="/static/carousel.css">
+{% endblock importing %}
+
+{% block navbarButton %}
+<button class="btn btn-outline-success" type="submit" onclick= "location.href='/login'">Login</button>
+{% endblock navbarButton %}
+
+{% block bodyBlock %}
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" id="firstSlide">
+            <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="hospital.svg"
+                aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="#777" />
+                <image href = "donation1.jpeg" width = "100%"/>
+            </svg> -->
+        </div>
+        <div class="carousel-item" id="secondSlide">
+            <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="#777" />
+                <image href = "hospital.jpg" width = "100%"/>
+            </svg> -->
+            
+        </div>
+        <div class="carousel-item" id="thirdSlide">
+            <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="#777" />
+                <image href = "donation2.jpeg" width = "100%"/>
+            </svg> -->
+            
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
+            preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#FFF" />
+            <image href = "/static/blood_donation_logo.png" height = "110%" width = "110%"/>
+            
+            </svg>
+            <h2 class="fw-normal">Donor</h2>
+            <p>Some representative placeholder content for the three columns of text below the carousel. This is the
+                first column.</p>
+            {% comment %} <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> {% endcomment %}
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#FFF" />
+                <image href = "/static/hospital_logo.jpeg" height = "100%" width = "100%"/>
+                <!-- <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text> -->
+            </svg>
+            <h2 class="fw-normal">Hospital</h2>
+            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second
+                column.</p>
+                {% comment %} <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> {% endcomment %}
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#FFF" />
+                <image href = "/static/receiving_logo.webp" height = "110%" width = "100%"/>
+                
+                
+            </svg>
+            <h2 class="fw-normal">Receiver</h2>
+            <p>And lastly this, the third column of representative placeholder content.</p>
+            {% comment %} <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> {% endcomment %}
+        </div><!-- /.col-lg-4 -->
+    </div>
+
+{% endblock bodyBlock %}

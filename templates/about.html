@@ -1,0 +1,80 @@
+{% extends 'navbar.html' %}
+
+{% block navbarButton %}
+<button class="btn btn-outline-success" type="submit" onclick= "location.href='/login'">Login</button>
+{% endblock navbarButton %}
+
+{% block bodyBlock %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">About Lifestream</h1>
+        <p class="col-md-8 fs-4">
+            LifeStream is a blood donation management system.
+            <br>
+            Blood donation is a vital part of worldwide healthcare. <br>
+        <ul>
+            <li class = "fs-4">
+                It relates to blood transfusion as a life-sustaining and life-saving procedure as well as a form of
+                therapeutic phlebotomy as a primary medical intervention.
+            </li>
+            <li class = "fs-4">
+                Over one hundred million units of blood are donated each year throughout the world.
+            </li>
+            <li class = "fs-4">
+
+                This site makes the process of blood donation seamless and also helps the receivers find blood in
+                cases of emergency quickly.
+            </li>
+        </ul>
+
+
+
+        </p>
+
+    </div>
+</div>
+
+
+
+<!-- About the developers -->
+<footer>
+    <p class="h1 text-center my-5">About the developers</p>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <!-- 337x337 images -->
+                    <img src="/static/profes_photo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sayan Mandal</h5>
+                        <p class="card-text">Backend devleoper of LifeStream</p>
+                        <a href="https://www.linkedin.com/in/sayan-mandal-394810217/" class="btn btn-primary" target="_blank">Go to LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/static/developer2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Abishek Immanuel</h5>
+                        <p class="card-text">Database Engineer of LifeStream</p>
+                        <a href="https://www.linkedin.com/in/abishek-immanuel-68ba6b23b/" class="btn btn-primary" target="_blank">Go to LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sneha Varshini</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the card's
+                            content.</p>
+                        <a href="#" class="btn btn-primary" target="_blank">Go to LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock bodyBlock %}

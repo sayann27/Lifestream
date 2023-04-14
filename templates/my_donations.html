@@ -1,0 +1,77 @@
+{% extends 'dash_nav_donor.html' %}
+
+{% block bodyBlock %}
+<div class="container my-5">
+
+    <div class="h1 text-center">List of all your donations</div>
+
+
+    <div class="h2">Hospitals</div>
+    <div class="container">
+        {% if active_length == 0 %}
+        <div class="h4 text-center">No hospitals</div>
+        {% else %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Hospital name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for i in donations_list %}
+                <tr>
+                    {% for j in i %}
+                    
+                    <td>{{j}}</td>
+                    
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                
+                
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+
+    <div class="h2">Previous/Rejected</div>
+    <div class="container">
+        {% if prev_length == 0 %}
+        <div class="h4 text-center">No previous donations</div>
+        {% else %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Hospital name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for i in donations_prev %}
+                <tr>
+                    {% for j in i %}
+                    
+                    <td>{{j}}</td>
+                    
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                
+                
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</div>
+{% endblock bodyBlock %}
