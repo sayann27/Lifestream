@@ -503,7 +503,11 @@ def donor_requests(requests):
         age = date.today().year - dob.year - ((date.today().month, date.today().day) < (dob.month, dob.day))
         date_rec = donors[i].date
         time_rec = donors[i].time
-        req_list.append([["Name", name], ["Blood Group", bg], ["Age", age], ["Date", date_rec], ["Time", time_rec]])
+        med = change_link(Donor.objects.filter(name=name)[0].medical_records)
+        if med == 1:
+            req_list.append([["Name", name], ["Blood Group", bg], ["Age", age], ["Date", date_rec], ["Time", time_rec], ["No Medical records", ""]])
+        else: 
+            req_list.append([["Name", name], ["Blood Group", bg], ["Age", age], ["Date", date_rec], ["Time", time_rec], ["Medical Records", med]])
     
     context['req_list'] = req_list
     if requests.method == "POST":
@@ -575,7 +579,7 @@ def receiver_requests(requests):
         date_rec = receivers[i].date
         time_rec = receivers[i].time
         med = change_link(Receiver.objects.filter(name=name)[0].medical_records)
-        print(med)
+        # print(med)
         if med == 1:
             req_list.append([["Name", name], ["Blood Group", bg], ["Age", age], ["Date", date_rec], ["Time", time_rec], ["No Medical records", ""]])
         else: 
