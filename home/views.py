@@ -38,6 +38,8 @@ def register(requests):
         addline1 = requests.POST.get('addline1')
         addline2 = requests.POST.get('addline2')
         city = requests.POST.get('city')
+        cities = City.objects.filter(name = city)[0]
+        city_id = cities
         state = requests.POST.get('state')
         pincode = requests.POST.get('pincode')
         pwd = requests.POST.get('pwd')
@@ -67,11 +69,11 @@ def register(requests):
         user.first_name = name
         user.save()
         if user_type == "Receiver":
-            registration = Receiver(name = name, email = email, dob = dob, phone = phone, bg = bg, addline1=addline1, addline2=addline2, city=city, state=state, pincode=pincode, pwd=pwd )
+            registration = Receiver(name = name, email = email, dob = dob, phone = phone, bg = bg, addline1=addline1, addline2=addline2, city=city, state=state, pincode=pincode, pwd=pwd, city_ID=city_id)
         elif user_type == "Donor":
-            registration = Donor(name = name, email = email, dob = dob, phone = phone, bg = bg, addline1=addline1, addline2=addline2, city=city, state=state, pincode=pincode, pwd=pwd )
+            registration = Donor(name = name, email = email, dob = dob, phone = phone, bg = bg, addline1=addline1, addline2=addline2, city=city, state=state, pincode=pincode, pwd=pwd, city_ID=city_id )
         else:
-            registration = Hospital(name=name, email=email, phone=phone, addline1=addline1, addline2=addline2, city=city, state=state, pincode=pincode, pwd=pwd, cover_image = cover_image)
+            registration = Hospital(name=name, email=email, phone=phone, addline1=addline1, addline2=addline2, city=city, state=state, pincode=pincode, pwd=pwd, cover_image = cover_image, city_ID=city_id)
             blood = Blood_group(hosp_email=email)
             blood.save()
         registration.save()
@@ -294,7 +296,8 @@ def donate(requests):
         date = requests.POST.get('date')
         donor_name = requests.session['username']
         city_ID = City.objects.filter(name=requests.session['user_city'])[0].id
-        donate = Donation(donor_name=donor_name, hosp_name=hosp_name, hosp_email=email, time=time,date=date,  city_ID=city_ID, status="Not donated")
+        city = requests.session['user_city']
+        donate = Donation(donor_name=donor_name, hosp_name=hosp_name, hosp_email=email, time=time,date=date,  city = city, status="Not donated")
         donate.save()
         messages.success(requests, "Request sent to hospital successfully")
 
@@ -571,7 +574,14 @@ def receiver_requests(requests):
         age = date.today().year - dob.year - ((date.today().month, date.today().day) < (dob.month, dob.day))
         date_rec = receivers[i].date
         time_rec = receivers[i].time
-        req_list.append([["Name", name], ["Blood Group", bg], ["Age", age], ["Date", date_rec], ["Time", time_rec]])
+        med = change_link(Receiver.objects.filter(name=name)[0].medical_records)
+        print(med)
+        if med == 1:
+            req_list.append([["Name", name], ["Blood Group", bg], ["Age", age], ["Date", date_rec], ["Time", time_rec], ["No Medical records", ""]])
+        else: 
+            req_list.append([["Name", name], ["Blood Group", bg], ["Age", age], ["Date", date_rec], ["Time", time_rec], ["Medical Records", med]])
+
+
     
     context['req_list'] = req_list
     if requests.method == "POST":

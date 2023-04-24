@@ -29,9 +29,20 @@
                         <div class="row">
                             {% for j in i %}
                             <div class="col">
+                                {% load define_action %}
                                 {% for k in j %}
+                                {% if flag == 0 %}
+                                <button class="btn-primary"><a href="{{k}}" target="_blank" style = "text-decoration: none; color: black;" class = "link">Medical records</a></button>
+                                {% else %}
+                                {% if k == "Medical Records" %}
+                                {% defined 0 as flag %}
+                                {% else %}
                                 <h5 class="card-title">{{k}}</h5>
+                                {% endif %}
+                                
+                                {% endif %}
                                 {% endfor %}
+                                
                                 
                             </div>
                             {% endfor %}
